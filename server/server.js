@@ -10,6 +10,7 @@ const app = express()
 const port = process.env.PORT || 3005;
 
 app.use(express.json({ limit: '20mb' }))
+app.use(cors());
 app.use('/memories', memoryRouter);
 /* app.get('/', (req, res) => {
     res.json({ message: '5000. porta yapilan get istegi' })
@@ -26,4 +27,4 @@ app.listen(port, () => {
     }).then(() => console.log('database connected'))
         .catch((err) => console.log(err))
 
-})  
+})   
