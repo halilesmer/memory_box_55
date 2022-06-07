@@ -1,16 +1,15 @@
 import axios from 'axios';
 
+const API = axios.create({ baseURL: 'http://localhost:3005/' });
 
-const api = axios.create({baseURL: 'http://localhost:3005'});
 
-export const fetchMemories = async ()=> api.get('/memories');
+export const fetchMemories = async () => API.get('/memories');
 
 export const createMemory = async (newMemory) => {
-    const data = await api.post('/memories', newMemory);
+    const { data } = await API.post('/memories', newMemory);
     console.log("data: ", data);
-    
-}
 
+}
 
 
 

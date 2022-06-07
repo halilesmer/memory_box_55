@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Form, Button, } from 'react-bootstrap'
 import FileBase64 from 'react-file-base64';
-import  *  as api from '../axios/index.js';
+import *  as api from '../axios/index.js';
+import { useNavigate } from 'react-router-dom';
 
 const SubmitMemory = (value) => {
     const [memoryData, setMemoryData] = useState({
@@ -11,11 +12,13 @@ const SubmitMemory = (value) => {
         image: '',
     })
 
+    const navigate = useNavigate();
     return (<>
 
         <Form onSubmit={(e) => {
             e.preventDefault();
-           api.createMemory(memoryData);
+            api.createMemory(memoryData);
+            navigate('/');
         }}>
             <Form.Group>
                 <h1>Create a Memory</h1>

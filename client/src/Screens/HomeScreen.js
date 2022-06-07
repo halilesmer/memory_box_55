@@ -15,16 +15,16 @@ const HomeScreen = () => {
     getMemories()
   }, [])
   return (<>
-    <h1>Actual Memories</h1>
+    <h1 style={{ margin: '0 auto', display: 'table' }} >Actual Memories</h1>
     {!memories.length ? <Spinner animation='border' /> : (
       <Row className='m-auto'>
-       { memories.map(memory => (
+        {memories.map(memory => (
 
-        <Col sm={12} md={6} lg={4} xl={3}
-          key={memory._id}
-          className='m-auto'>
-          <MemoryCard memory={memory} />
-        </Col>
+          <Col sm={12} md={6} lg={4} xl={3}
+            key={memory._id}
+            className='m-auto'>
+            <MemoryCard memory={memory} />
+          </Col>
         )
         )}
 
